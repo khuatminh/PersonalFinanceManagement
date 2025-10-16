@@ -75,3 +75,14 @@ Desktop.ini
 *.iws
 *.iml
 *.ipr
+
+AGENTS.md
+BUILD_SUMMARY.md
+CLAUDE.md
+fix-database-schema.sql
+FIX_PROGRESS.md
+init.bat
+MySQL-Setup-Guide.md
+Personal-Finance-Manager-Brief.md
+PersonalFinanceManager.iml
+query
