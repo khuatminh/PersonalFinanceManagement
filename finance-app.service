@@ -1,0 +1,25 @@
+[Unit]
+Description=Personal Finance Manager Application
+After=network.target mysql.service
+Wants=mysql.service
+
+[Service]
+Type=simple
+User=your-username
+Group=your-username
+WorkingDirectory=/opt/finance-app
+ExecStart=/usr/bin/java -jar /opt/finance-app/target/personal-finance-manager-1.0.0.jar
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=finance-app
+
+# Environment Variables
+Environment="GEMINI_API_KEY=your_actual_gemini_api_key"
+
+# Performance Tuning
+Environment="JAVA_OPTS=-Xmx512m -Xms256m"
+
+[Install]
+WantedBy=multi-user.target

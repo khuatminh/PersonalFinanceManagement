@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/register", "/user/register", "/css/**", "/js/**", "/images/**", "/h2-console/**").permitAll()
+                .antMatchers("/", "/register", "/user/register", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/api/chat/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**", "/dashboard", "/transactions/**", "/budgets/**", "/goals/**", "/reports/**", "/notifications/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
@@ -68,7 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/access-denied")
                 .and()
             .csrf()
-                .ignoringAntMatchers("/h2-console/**")
+                .ignoringAntMatchers("/h2-console/**", "/api/chat/**")
                 .and()
             .headers()
                 .frameOptions().sameOrigin();
